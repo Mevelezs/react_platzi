@@ -1,16 +1,28 @@
-import React from 'react'
 import { Counter } from '../counter/counter'
-import { Create } from '../create/create'
 import { Items } from '../items/items'
 import { Search } from '../search/search'
+import { Reset } from '../reset/reset'
+import { Creator } from '../buttonCreator/creator'
+import { Modal } from '../modal/modal'
+import { useContext } from 'react'
+import { TodoContex } from '../useContext/useContext'
+import { Create } from '../create/create'
 
-export function AppUI () {
+export function AppUI() {
+  const {openModal} = useContext(TodoContex)
   return (
     <>
       <Counter />
-      <Create />
       <Search />
+      <Reset />
       <Items />
+      <Creator/>
+      { openModal && ( 
+        <Modal> 
+          <Create />
+        </Modal>
+      )
+      }
     </>
   )
 }

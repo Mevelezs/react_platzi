@@ -1,22 +1,26 @@
-import React from 'react'
-import { List } from '../list/list'
+import { useContext } from "react"
+import {TodoContex } from "../useContext/useContext"
 
-const todos = [
-  { text: 'Cocinar', completed: true },
-  { text: 'Lavar ', completed: false },
-  { text: 'Trotar', completed: false },
-  { text: 'Comer', completed: false }
-]
-
-export function Items () {
+export function Items() {
+  const { initialTasks, handleComplete, handleDelete } = useContext(TodoContex)
   return (
     <>
       {
-        todos.map(e => (
-          <List key={e.text}>
-            {e.text}
-          </List>
-        ))
+      initialTasks && initialTasks.map(e => (
+        <section className='section' key={e.text}>
+          <ul>
+            <li className='todoItem'>
+              <span>
+                <button style={e.completed ? { backgroundColor: 'blue' } : { backgroundColor: 'red' }} type='button' onClick={() => handleComplete(e.text)}>√</button>
+              </span>
+              <p>{e.text}</p>
+              <button type='button' onClick={() => { handleDelete(e.text) }}>
+                <span className='Icon Icon-delete'>X</span>
+              </button>
+            </li>
+          </ul>
+        </section>
+      ))
       }
     </>
   )

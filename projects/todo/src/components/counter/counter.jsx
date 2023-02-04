@@ -1,11 +1,17 @@
-import React from 'react'
 import './counter.css'
+import { useContext } from 'react'
+import { TodoContex } from '../useContext/useContext'
 
-export function Counter () {
+
+export function Counter() {
+  const { count, initialTasks } = useContext(TodoContex)
   return (
     <>
-      <h2 className='titleTasks'>Your tasks</h2>
-      <h4 className='counter'>completed 2 of 3 tasks</h4>
+      <section>
+        <h2 className='titleTasks'>Your tasks</h2>
+        <h4 className='counter'>completed {count} of {initialTasks.length} tasks</h4>
+      </section>
     </>
   )
 }
+
