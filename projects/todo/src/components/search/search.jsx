@@ -1,11 +1,10 @@
 import React from 'react'
 import './search'
-import { useContext } from 'react'
-import { TodoContex } from '../useContext/useContext'
+// import { useContext } from 'react'
+// import { TodoContex } from '../useContext/useContext'
 
-export function Search () {
-  const { search, handleonSearch } = useContext(TodoContex)
-
+export function Search({ search, handleonSearch }) {
+  // const { search, handleonSearch } = useContext(TodoContex)
   return (
     <>
       <input

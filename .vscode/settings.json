@@ -1,2 +1,11 @@
 {
+    "[javascript][javascriptreact]": {
+        "editor.rulers": [
+            100
+        ],
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
 }

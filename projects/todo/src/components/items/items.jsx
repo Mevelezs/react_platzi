@@ -1,8 +1,8 @@
-import { useContext } from "react"
-import {TodoContex } from "../useContext/useContext"
+// import { useContext } from "react"
+// import {TodoContex } from "../useContext/useContext"
 
-export function Items() {
-  const { initialTasks, handleComplete, handleDelete } = useContext(TodoContex)
+export function Items({ initialTasks, handleComplete, handleDelete }) {
+  //const { initialTasks, handleComplete, handleDelete } = useContext(TodoContex)
   return (
     <>
       {

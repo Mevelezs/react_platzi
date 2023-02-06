@@ -1,8 +1,10 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect/*, createContext */ } from 'react'
 
-const TodoContex = createContext()
+// const TodoContex = createContext()
 
-function TodoProvider ({children}) {
+// function TodoProvider({ children }) {
+
+  function useTasks() {
   
   const getLocalStorage = localStorage.getItem('APP_V1')
   let initialTasks;
@@ -85,31 +87,48 @@ function TodoProvider ({children}) {
   }
   const handleModal = () => {
     setOpenModal(!openModal)
+    setCreate('')
   }
 
   useEffect(() => {
     handleCount()
+    getLocalStorage
   }, [todos])
 
   return (
-    < TodoContex.Provider value = {{
-        create,
-        count,
-        search,
-        initialTasks,
-        handleComplete,
-        handleCreate,
-        handleDelete,
-        handleReset,
-        handleonSearch,
-        onSubmit,
-        openModal,
-        setOpenModal,
-        handleModal
-    }}>
-      {children }
-    </TodoContex.Provider >
+    // < TodoContex.Provider value = {{
+    //     create,
+    //     count,
+    //     search,
+    //     initialTasks,
+    //     handleComplete,
+    //     handleCreate,
+    //     handleDelete,
+    //     handleReset,
+    //     handleonSearch,
+    //     onSubmit,
+    //     openModal,
+    //     setOpenModal,
+    //     handleModal
+    // }}>
+    //   {children }
+    // </TodoContex.Provider >
+    {
+      create,
+      count,
+      search,
+      initialTasks,
+      handleComplete,
+      handleCreate,
+      handleDelete,
+      handleReset,
+      handleonSearch,
+      onSubmit,
+      openModal,
+      handleModal
+    }
     )
 }
 
-export { TodoContex, TodoProvider }
+export { useTasks }
+// export { TodoContex, TodoProvider }

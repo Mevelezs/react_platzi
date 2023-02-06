@@ -1,9 +1,9 @@
 import './create.css'
-import { useContext } from 'react'
-import { TodoContex } from '../useContext/useContext'
+// import { useContext } from 'react'
+// import { TodoContex } from '../useContext/useContext'
 
-export function Create() {
-  const { onSubmit, create, handleCreate, handleModal} = useContext(TodoContex)
+export function Create({ onSubmit, create, handleCreate, handleModal }) {
+  // const { onSubmit, create, handleCreate, handleModal} = useContext(TodoContex)
   return (
     <>
       <form onSubmit={onSubmit}>
