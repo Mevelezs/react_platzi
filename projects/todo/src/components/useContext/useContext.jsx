@@ -1,26 +1,23 @@
-import { useState, useEffect/*, createContext */ } from 'react'
+import { useState, useEffect } from 'react'
 
-// const TodoContex = createContext()
-
-// function TodoProvider({ children }) {
-
-  function useTasks() {
-  
+function useTasks() {
+ 
   const getLocalStorage = localStorage.getItem('APP_V1')
   let initialTasks;
 
   if (!getLocalStorage) {
     localStorage.setItem('APP_V1', JSON.stringify([]))
-    initialTasks = []
+    initialTasks = initialTasks
   } else {
     initialTasks = JSON.parse(getLocalStorage)
   }
-
   const [todos, setTodos] = useState(initialTasks)
   const [search, setSearch] = useState('')
   const [create, setCreate] = useState('')
   const [count, setCount] = useState('')
   const [openModal, setOpenModal] = useState(false)
+  const [loading, setLoading] = useState(true)
+
 
 
   if (search.length < 1) {
@@ -89,30 +86,18 @@ import { useState, useEffect/*, createContext */ } from 'react'
     setOpenModal(!openModal)
     setCreate('')
   }
-
+  
+  const handleLoading = () => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }
   useEffect(() => {
+    handleLoading()
     handleCount()
-    getLocalStorage
   }, [todos])
 
   return (
-    // < TodoContex.Provider value = {{
-    //     create,
-    //     count,
-    //     search,
-    //     initialTasks,
-    //     handleComplete,
-    //     handleCreate,
-    //     handleDelete,
-    //     handleReset,
-    //     handleonSearch,
-    //     onSubmit,
-    //     openModal,
-    //     setOpenModal,
-    //     handleModal
-    // }}>
-    //   {children }
-    // </TodoContex.Provider >
     {
       create,
       count,
@@ -125,10 +110,11 @@ import { useState, useEffect/*, createContext */ } from 'react'
       handleonSearch,
       onSubmit,
       openModal,
-      handleModal
+      handleModal,
+      loading
     }
     )
 }
 
 export { useTasks }
-// export { TodoContex, TodoProvider }
+

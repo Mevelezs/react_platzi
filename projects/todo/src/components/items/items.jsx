@@ -7,9 +7,7 @@ export function Items({ initialTasks, handleComplete, handleDelete }) {
     <>
       {
       initialTasks && initialTasks.map(e => (
-        <section className='section' key={e.text}>
-          <ul>
-            <li className='todoItem'>
+          <li className='todoItem' key={e.text}>
               <span>
                 <button style={e.completed ? { backgroundColor: 'blue' } : { backgroundColor: 'red' }} type='button' onClick={() => handleComplete(e.text)}>√</button>
               </span>
@@ -18,8 +16,6 @@ export function Items({ initialTasks, handleComplete, handleDelete }) {
                 <span className='Icon Icon-delete'>X</span>
               </button>
             </li>
-          </ul>
-        </section>
       ))
       }
     </>

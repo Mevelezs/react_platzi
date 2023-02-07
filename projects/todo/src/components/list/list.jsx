@@ -1,18 +1,15 @@
 import React from 'react'
 import './list.css'
 
-export function List ({ children, handleonSearch }) {
+export function List ({ onLoading, loading, children }) {
   return (
     <section className='section'>
+      {loading ? onLoading() :
       <ul>
-        <li className='todoItem'>
-          <span>
-            √
-          </span>
-          <p>{children}</p>
-          <span className='Icon Icon-delete'>X</span>
-        </li>
+        {children} 
       </ul>
+      }
     </section>
   )
 }
+

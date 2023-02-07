@@ -11,6 +11,7 @@
 
 
 import { Counter } from '../counter/counter'
+import { List } from '../list/list'
 import { Items } from '../items/items'
 import { Search } from '../search/search'
 import { Reset } from '../reset/reset'
@@ -18,6 +19,7 @@ import { Creator } from '../buttonCreator/creator'
 import { Modal } from '../modal/modal'
 import { Create } from '../create/create'
 import { TodoHeader } from '../header/TodoHeader'
+import { TodoLoading } from '../Loading/TodoLoading'
 
 import { useTasks } from '../useContext/useContext'
 
@@ -34,7 +36,8 @@ function App() {
     handleonSearch,
     onSubmit,
     openModal,
-    handleModal
+    handleModal,
+    loading,
   } = useTasks()
   return (
     <>
@@ -51,11 +54,16 @@ function App() {
 
       <Reset handleReset={handleReset} />
 
-      <Items
-        initialTasks={initialTasks}
-        handleComplete={handleComplete}
-        handleDelete={handleDelete} 
-      />
+      <List
+        loading={loading}
+        onLoading = {() => <TodoLoading/>}
+      >
+        <Items
+          initialTasks={initialTasks}
+          handleComplete={handleComplete}
+          handleDelete={handleDelete} 
+        />
+      </List>
 
       <Creator handleModal={handleModal} />
       
