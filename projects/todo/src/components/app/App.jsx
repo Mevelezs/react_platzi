@@ -1,14 +1,3 @@
-// import { AppUI } from '../appUi/appUI'
-// import { TodoProvider} from '../useContext/useContext'
-
-// function App () {
-//   return (
-//     <TodoProvider>
-//       <AppUI />
-//     </TodoProvider>
-//   )
-// }
-
 
 import { Counter } from '../counter/counter'
 import { List } from '../list/list'
@@ -82,3 +71,4 @@ function App() {
 }
 
 export default App
+ 

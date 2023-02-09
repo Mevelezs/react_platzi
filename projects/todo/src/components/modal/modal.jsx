@@ -5,7 +5,7 @@ import './modal.css'
 export function Modal({ children }) {
     return ReactDOM.createPortal(
       <div className="modalBackgound">
-            {children} {/* // hijos */}
+            {children}
       </div>,
       document.getElementById('modal') // nodo de html
   )

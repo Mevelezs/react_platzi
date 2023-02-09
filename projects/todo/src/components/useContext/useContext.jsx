@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 
+
 function useTasks() {
  
   const getLocalStorage = localStorage.getItem('APP_V1')
@@ -17,9 +18,7 @@ function useTasks() {
   const [count, setCount] = useState('')
   const [openModal, setOpenModal] = useState(false)
   const [loading, setLoading] = useState(true)
-
-
-
+  
   if (search.length < 1) {
     initialTasks = todos
   } else {
@@ -29,12 +28,12 @@ function useTasks() {
       return elementText.includes(searchValue)
     })
   }
-
+  
   const saveLocalStorage = (tasks) => {
     localStorage.setItem('APP_V1', JSON.stringify(tasks))
     setTodos(tasks)
   }
-
+  
   const handleonSearch = (e) => {
     e.preventDefault()
     setSearch(e.target.value)
@@ -96,6 +95,16 @@ function useTasks() {
     handleLoading()
     handleCount()
   }, [todos])
+
+  useEffect(() => {
+    window.addEventListener('storage', (changes) => {
+      if (changes.key === 'APP_V1') {
+        setTodos(JSON.parse(changes.newValue))
+
+      }
+    })
+
+  },[todos])
 
   return (
     {
