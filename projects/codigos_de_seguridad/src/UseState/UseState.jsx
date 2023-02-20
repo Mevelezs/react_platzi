@@ -112,7 +112,7 @@ export function UseState() {
 
       <div style={{ display: 'flex', marginBottom: '20px' }}>
         
-        <input type="text" id='input' name='input' value={input} onChange = {handleonChange} />
+        <input type="text" id='input' name='input' value={input} onChange = {handleonChange} placeholder='Write the key'/>
         
         <button type='submit' onClick={handleonClick}> Check </button>
       </div>

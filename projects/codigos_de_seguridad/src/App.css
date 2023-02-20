@@ -1,6 +1,30 @@
-section {
-    background-color: aquamarine;
+
+.section {
+    display:flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 500px;
+}
+
+.useState{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: aquamarine;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+
+}
+
+.useReducer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: bisque;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
 }
